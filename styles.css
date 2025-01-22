@@ -1,0 +1,169 @@
+/* Prevent horizontal scrolling */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+  }
+  
+  /* General Styles */
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #f7f7f7, #ffffff);
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 400px;
+    height: 90%; /* Adjust height to 90% of the viewport */
+    min-height: 400px;  /* Ensures a minimum height for small screens */
+    max-height: 90vh;  /* Prevents the container from becoming too tall */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box; /* Prevents padding from affecting the width and height */
+  }
+  
+  /* Header Section */
+  .header {
+    background-color: white;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #4285F4;
+  }
+  
+  /* Search Section */
+  .search-container {
+    display: flex;
+    align-items: center;
+    margin: 20px 10px;
+    width: 90%;
+    position: relative;
+  }
+  
+  .search-icon {
+    font-size: 25px;
+    color: #4285F4; /* Google blue color */
+    margin-right: 10px;
+  }
+  
+  .search-bar {
+    flex-grow: 1;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 15px;
+    font-size: 14px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+    padding-right: 40px; /* Space for the submit button */
+  }
+  
+  .search-bar:focus {
+    outline: none;
+    border-color: #4285F4;
+    box-shadow: 0 4px 8px #4286f463;
+  }
+  
+  .submit-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #4285F4; /* Chose a warm color for the icon */
+    transition: color 0.3s;
+  }
+  
+  .submit-btn:hover {
+    color: #4285F4; /* Slightly darker when hovered */
+  }
+  
+  /* Tools Section */
+  .tools-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .tool {
+    width: 30%; /* Adjusts to fit 3 in a row */
+    height: auto; /* Set fixed height for the tool */
+    background: #ffffff;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Aligns the image to the top */
+    margin: 10px 0;
+    position: relative;
+    box-sizing: border-box;
+    border: 1px solid #373B44;
+    padding: 8px;
+  }
+  
+  .tool img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover; /* Ensures image fills the container */
+    border-radius: 10px;
+  }
+
+  .tool button {
+    width: 100%;
+    text-align: center;
+    border: none;
+    padding: 10px 0;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1);
+    background-color: transparent; /* Starting color */
+  }
+  .button-89 {
+    --b: 1px;   /* border thickness */
+    --s: .25em; /* size of the corner */
+    --color: #373B44;
+    
+    padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+    color: var(--color);
+    --_p: var(--s);
+    background:
+      conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+      var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+    transition: .3s linear, color 0s, background-color 0s;
+    outline: var(--b) solid #0000;
+    outline-offset: .6em;
+    font-size: 16px;
+  
+    border: 0;
+  
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .button-89:hover,
+  .button-89:focus-visible{
+    --_p: 0px;
+    outline-color: var(--color);
+    outline-offset: .05em;
+  }
+  
+  .button-89:active {
+    background: var(--color);
+    color: #fff;
+  }
