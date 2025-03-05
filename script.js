@@ -185,7 +185,7 @@ function selectTool(name, url, iconClass) {
 
     const input = document.getElementById('search-input');
     if (name === 'Weather') {
-        input.placeholder = 'Enter Your city...'; // Custom placeholder for Weather
+        input.placeholder = 'Enter city name...'; // Custom placeholder for Weather
     } else {
         input.placeholder = `Search ${name}...`; // Default for other tools
     }
