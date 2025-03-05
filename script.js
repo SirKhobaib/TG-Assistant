@@ -2,7 +2,7 @@
 if (window.Telegram && window.Telegram.WebApp) {
     window.Telegram.WebApp.ready();
     const mainButton = window.Telegram.WebApp.MainButton;
-    mainButton.setText('Back to Home');
+    mainButton.setText('Home');
     mainButton.setParams({ color: '#007bff', text_color: '#fff' });
     mainButton.onClick(() => window.location.reload());
     mainButton.show();
