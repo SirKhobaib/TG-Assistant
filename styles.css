@@ -1,6 +1,4 @@
-/* Import SF Pro font */
-@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;500;700&display=swap');
-
+/* Fallback to a reliable font stack since SF Pro Display import failed */
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +6,7 @@
 }
 
 body {
-    font-family: -apple-system, 'SF Pro Display', 'Inter', sans-serif;
+    font-family: -apple-system, 'Inter', 'Segoe UI', Roboto, sans-serif; /* Removed SF Pro Display import */
     background: #f5f5f7;
     color: #1d1d1f;
     line-height: 1.6;
@@ -239,7 +237,7 @@ body.dark-theme .searchable-button {
     position: relative;
     transition: transform 0.2s ease;
     cursor: pointer;
-    touch-action: manipulation; /* Improve touch handling */
+    touch-action: manipulation;
 }
 
 body.dark-theme .card {
@@ -273,7 +271,7 @@ body.dark-theme .card-icon {
     font-size: 1.5rem;
     font-weight: 700;
     color: #1d1d1f;
-    font-family: -apple-system, 'SF Pro Display', sans-serif;
+    font-family: -apple-system, 'Inter', 'Segoe UI', Roboto, sans-serif; /* Updated font stack */
     margin-bottom: 5px;
 }
 
@@ -307,13 +305,12 @@ body.dark-theme .tool-name {
     color: #ffffff;
 }
 
-/* Removed .menu-btn since we're using long-press */
-
 .menu {
     position: absolute;
-    bottom: 30px;
+    top: 30px;
     right: 0;
     background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
     display: none;
@@ -628,7 +625,7 @@ body.dark-theme .input-group input {
     .card-icon { margin-bottom: 3px; }
     .text-icon { margin-bottom: 3px; }
     .menu {
-        bottom: 25px;
+        top: 25px;
         min-width: 130px;
     }
 }
@@ -639,7 +636,7 @@ body.dark-theme .input-group input {
     .card-icon { margin-bottom: 4px; }
     .text-icon { margin-bottom: 4px; }
     .menu {
-        bottom: 28px;
+        top: 28px;
     }
 }
 
