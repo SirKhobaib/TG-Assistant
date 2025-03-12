@@ -1,5 +1,6 @@
-// Ensure Telegram WebApp is available
-if (window.Telegram && window.Telegram.WebApp) {
+// Check for Telegram WebApp and handle gracefully
+const isTelegramWebApp = window.Telegram && window.Telegram.WebApp;
+if (isTelegramWebApp) {
     window.Telegram.WebApp.ready();
     const mainButton = window.Telegram.WebApp.MainButton;
     mainButton.setText('Home');
@@ -7,7 +8,7 @@ if (window.Telegram && window.Telegram.WebApp) {
     mainButton.onClick(() => window.location.reload());
     mainButton.show();
 } else {
-    console.error("Telegram WebApp is not available");
+    console.warn("Telegram WebApp is not available. Running in non-Telegram environment.");
 }
 
 // Define default tools with icon classes
@@ -99,9 +100,9 @@ function loadTools() {
 
         card.addEventListener('touchstart', (e) => {
             pressTimer = setTimeout(() => {
-                e.preventDefault(); // Prevent default touch behavior
+                e.preventDefault();
                 toggleMenu(card, menu);
-            }, 500); // 500ms hold threshold
+            }, 500);
         });
 
         card.addEventListener('touchend', () => {
@@ -233,10 +234,12 @@ function addAddButton() {
 }
 
 function openLink(url) {
-    if (window.Telegram && window.Telegram.WebApp && url) {
+    if (isTelegramWebApp && url) {
         window.Telegram.WebApp.openLink(url, { try_instant_view: true });
+    } else if (url) {
+        window.open(url, '_blank'); // Fallback to open in new tab
     } else {
-        console.warn("Telegram WebApp not available, link not opened: " + url);
+        console.warn("No valid URL provided to open.");
     }
 }
 
@@ -246,8 +249,10 @@ function performSearch() {
     const selectedTool = document.getElementById('selected-tool');
     const url = selectedTool.dataset.url;
     const searchUrl = `${url}${encodeURIComponent(query)}`;
-    if (window.Telegram && window.Telegram.WebApp) {
+    if (isTelegramWebApp) {
         window.Telegram.WebApp.openLink(searchUrl);
+    } else {
+        window.open(searchUrl, '_blank'); // Fallback for non-Telegram
     }
 }
 
